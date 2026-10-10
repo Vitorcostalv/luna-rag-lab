@@ -1,3 +1,10 @@
+import { sharedLimit } from "@/core/security/shared-limit";
+import {
+  publicReplay,
+  guardOwner,
+  protectedDeployment,
+} from "@/core/security/session";
+import { publicLab, publicOperation } from "@/demo/public";
 import { z } from "zod";
 import { and, eq, desc, count, sql } from "drizzle-orm";
 import { getDb } from "@/db/client";
@@ -21,6 +28,12 @@ import questions from "../../../../evals/questions.json";
 import { retrievalMetrics } from "@/core/evaluation/retrieval-metrics";
 export const runtime = "nodejs";
 export async function GET(request: Request) {
+  if (publicReplay(request)) return Response.json(publicLab());
+  if (protectedDeployment()) {
+    const p = new URL(request.url).searchParams;
+    if (p.get("userId") !== "admin" || p.get("projectId") !== "demo")
+      return Response.json({ error: "Access denied" }, { status: 403 });
+  }
   try {
     const params = Object.fromEntries(new URL(request.url).searchParams),
       identity = identitySchema.parse(params),
@@ -98,6 +111,9 @@ export async function GET(request: Request) {
       evaluations: evals,
       quota,
       provider: process.env.AI_PROVIDER || "mock",
+      accessMode: protectedDeployment() ? "owner" : "local",
+      executionMode: "live",
+      canWrite: access.write,
     });
   } catch (error) {
     return apiError(error);
@@ -105,8 +121,11 @@ export async function GET(request: Request) {
 }
 export async function POST(request: Request) {
   try {
-    const raw = await request.json(),
-      operation = z.enum(["compare", "chunk"]).parse(raw.operation);
+    const raw = await request.json();
+    if (publicReplay(request)) return publicOperation(raw);
+    guardOwner(request, raw.payload);
+    await sharedLimit("owner:lab", 10);
+    const operation = z.enum(["compare", "chunk"]).parse(raw.operation);
     if (operation === "compare") {
       const body = retrievalSchema.parse(raw.payload),
         access = await checkAccess(body.userId, body.projectId);

@@ -1,6 +1,14 @@
 "use client";
 import type { Lab } from "./use-lab";
 export function Identity({ lab }: { lab: Lab }) {
+  if (lab.data?.accessMode === "owner")
+    return (
+      <div className="identity">
+        <strong>VERIFIED OWNER · SYNTHETIC PROJECT</strong>
+        <span className="tag">{lab.data.provider}</span>
+        <a href="/owner">Manage session</a>
+      </div>
+    );
   const current = lab.data?.quota.filter(
     (q) => q.cycleStart === new Date().toISOString().slice(0, 7) + "-01",
   )[0];
@@ -10,6 +18,17 @@ export function Identity({ lab }: { lab: Lab }) {
       current.cachedTokens +
       current.otherTokens
     : 0;
+  if (lab.data?.executionMode === "snapshot")
+    return (
+      <div className="identity notice">
+        <strong>PUBLIC DEMO · RECORDED MOCK</strong>
+        <span>Synthetic data · read only · no live AI or database writes</span>
+        <small>
+          Recorded {new Date(lab.data.generatedAt!).toLocaleDateString("pt-BR")}
+          . Owner access requires a verified server session.
+        </small>
+      </div>
+    );
   return (
     <div className="identity">
       <label>

@@ -27,7 +27,7 @@ export class Trace {
       record.output = Array.isArray(result)
         ? { count: result.length }
         : typeof result === "object" && result !== null
-          ? { keys: Object.keys(result) }
+          ? structuredOutput(stage, result as Record<string, unknown>)
           : result;
       this.emit({ type: "trace", data: record });
       return result;
@@ -38,4 +38,37 @@ export class Trace {
       throw error;
     }
   }
+}
+
+function structuredOutput(stage: string, result: Record<string, unknown>) {
+  if (stage === "Planner") return result;
+  if (stage === "Access")
+    return {
+      role: result.role,
+      projectId: result.projectId,
+      analytics: result.analytics,
+      write: result.write,
+    };
+  if (stage === "Tool")
+    return {
+      tool: result.tool,
+      dataset: result.dataset,
+      rows: Array.isArray(result.rows) ? result.rows.length : undefined,
+      aggregation: result.aggregation,
+    };
+  if (stage === "Citation Validation")
+    return {
+      invalid: result.invalid,
+      answerCharacters:
+        typeof result.text === "string" ? result.text.length : 0,
+    };
+  if (stage === "Generation")
+    return {
+      inputTokens: result.inputTokens,
+      outputTokens: result.outputTokens,
+      cachedTokens: result.cachedTokens,
+      answerCharacters:
+        typeof result.text === "string" ? result.text.length : 0,
+    };
+  return { keys: Object.keys(result) };
 }

@@ -1,4 +1,5 @@
 "use client";
+import { analyzeQuality } from "@/core/knowledge/quality";
 import { useState, useRef, useEffect } from "react";
 import type { RunResult } from "@/core/orchestrator";
 import type { Source, Hit, TraceStage } from "@/core/rag/types";
@@ -144,22 +145,32 @@ export function Inspector({
         <h2>
           <span className="section-number">02</span>RAG Inspector
         </h2>
-        <span className="tag">LIVE TRACE</span>
+        <span className="tag">
+          {result?.executionMode === "snapshot"
+            ? "RECORDED TRACE"
+            : "EXECUTION TRACE"}
+        </span>
       </div>
       <div className="tabs" role="tablist" aria-label="Inspector tabs">
-        {["Pipeline", "Retrieval", "Context", "Tokens", "Raw Trace"].map(
-          (t) => (
-            <button
-              role="tab"
-              aria-selected={t === tab}
-              className={t === tab ? "active" : ""}
-              key={t}
-              onClick={() => setTab(t)}
-            >
-              {t}
-            </button>
-          ),
-        )}
+        {[
+          "Pipeline",
+          "Decisions",
+          "Retrieval",
+          "Context",
+          "Quality",
+          "Tokens",
+          "Raw Trace",
+        ].map((t) => (
+          <button
+            role="tab"
+            aria-selected={t === tab}
+            className={t === tab ? "active" : ""}
+            key={t}
+            onClick={() => setTab(t)}
+          >
+            {t}
+          </button>
+        ))}
       </div>
       {!trace.length && !result ? (
         <div className="empty-chat">
@@ -202,6 +213,45 @@ export function Inspector({
                   {result.action.type} · {result.durationMs.toFixed(0)} ms total
                 </div>
               )}
+            </>
+          )}
+          {tab === "Decisions" && result && (
+            <>
+              <p>
+                Observable planner decisions and permission checks. These
+                records explain code behavior, not private chain of thought.
+              </p>
+              {result.decisions?.map((d, i) => (
+                <div className="step-evidence" key={i}>
+                  <strong>
+                    {d.step.toUpperCase()} · {d.status}
+                  </strong>
+                  <p>{d.reason}</p>
+                  <pre className="code-block">
+                    {JSON.stringify(
+                      { input: d.input, output: d.output },
+                      null,
+                      2,
+                    )}
+                  </pre>
+                </div>
+              ))}
+              <p>
+                Retrieval, tool, context, generation and validation timings
+                appear in Pipeline.
+              </p>
+            </>
+          )}
+          {tab === "Quality" && result && (
+            <>
+              <p>Analysis of observed candidates and context only.</p>
+              <pre className="code-block">
+                {JSON.stringify(
+                  analyzeQuality(result.hits, result.hits, result.sources),
+                  null,
+                  2,
+                )}
+              </pre>
             </>
           )}
           {tab === "Retrieval" && result && (

@@ -1,0 +1,1377 @@
+{
+  "generatedAt": "2026-10-10T02:18:59.668Z",
+  "results": [
+    {
+      "benchmark": {
+        "questionSet": "v1-15",
+        "model": "mock-hash-256-v2",
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "id": "9410d003-4eac-410a-ab38-f489bcf3b927",
+      "config": {
+        "mode": "SEMANTIC",
+        "topK": 6,
+        "threshold": 0.08
+      },
+      "results": [
+        {
+          "category": "Knowledge Retrieval",
+          "id": "ots",
+          "question": "O que significa OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.3333333333333333,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 16.034899999999652,
+          "contextTokens": 1064,
+          "citationCoverage": 0.3333333333333333,
+          "citationCorrectness": 1,
+          "runId": "9b4524ce-30aa-4d8e-8b75-8afbc1a84a96"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "observers",
+          "question": "Qual a diferença entre observadores e OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.2,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.753899999999703,
+          "contextTokens": 886,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "4f560a25-3446-4822-a13b-b3ec7ff4b183"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "dwell",
+          "question": "O que é dwell time?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 1,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 6.345800000000054,
+          "contextTokens": 217,
+          "citationCoverage": 1,
+          "citationCorrectness": 1,
+          "runId": "d9fee9d9-2904-4b32-8e79-480b1c555307"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "top",
+          "question": "Qual unidade apresentou mais OTS no período?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 31.945200000000114,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "ebfbd785-de20-4d8b-9c2e-8a9d92570d97"
+        },
+        {
+          "category": "Follow-up",
+          "id": "second",
+          "question": "Qual unidade ficou em segundo lugar?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.675900000000183,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "ba0fae22-17b4-454d-88ef-928ca63a2c20"
+        },
+        {
+          "category": "Follow-up",
+          "id": "compare",
+          "question": "Compare Loja Centro e Loja Norte.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.95640000000003,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "786264ac-6755-4344-83cc-68cc2b77e499"
+        },
+        {
+          "category": "Follow-up",
+          "id": "morning",
+          "question": "Agora considere somente o período da manhã.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.560500000000047,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "0b903f4c-7667-442f-9cbe-79ae5f962a5a"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "gender",
+          "question": "Qual gênero teve maior volume ontem?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 21.416600000000017,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "96850c51-cf06-4b76-97d1-e914dd76bab8"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "age",
+          "question": "Qual faixa etária teve maior atenção?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 12.515699999999924,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "01b064a3-0af8-448f-aede-235cb4e64230"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "hourly",
+          "question": "Quais datasets permitem análise por hora?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.2,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.4465000000000146,
+          "contextTokens": 780,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "777ecad6-17c7-4217-b1e3-2c7cd3c2e6bd"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "rag-tools",
+          "question": "Explique a diferença entre RAG e consulta estruturada neste sistema.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.2,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 6.801500000000033,
+          "contextTokens": 719,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "8ff145d3-6bff-433d-a0d0-08b7d20dc100"
+        },
+        {
+          "category": "Hybrid",
+          "id": "hybrid",
+          "question": "Qual unidade teve maior OTS e o que essa métrica representa?",
+          "type": "HYBRID",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.3333333333333333,
+            "recall": 1,
+            "mrr": 0.3333333333333333
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.025299999999788,
+          "contextTokens": 969,
+          "citationCoverage": 0.3333333333333333,
+          "citationCorrectness": 1,
+          "runId": "fb4b5bbc-7c51-4f77-a6ae-a80a6d2aebfa"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "missing-metric",
+          "question": "Qual foi o maior valor?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 2.152799999999843,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "c060a3d5-d04f-4991-920c-2c3d26f2a669"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "central",
+          "question": "Qual Loja Central teve maior OTS?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 2.9088000000001557,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "04feaa88-ae54-4c43-a91b-b0b86b067d33"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "no-evidence",
+          "question": "Explique a física de um quasar magnetizado interestelar.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 5.86449999999968,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "4083f766-40d1-42f8-ac20-6c4d32bb11f7"
+        }
+      ],
+      "summary": {
+        "total": 15,
+        "passed": 15,
+        "meanLatencyMs": 11.69361999999995,
+        "hitRate": 1,
+        "precision": 0.37777777777777777,
+        "recall": 1,
+        "mrr": 0.8888888888888888,
+        "citationCoverage": 0.4777777777777778,
+        "citationCorrectness": 1
+      },
+      "createdAt": "2026-10-10T02:18:58.858Z",
+      "evaluationKind": "deterministic checks; no LLM judge"
+    },
+    {
+      "benchmark": {
+        "questionSet": "v1-15",
+        "model": "mock-hash-256-v2",
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "id": "f1c8fd46-4ab4-48f5-bf06-d7e591bff93e",
+      "config": {
+        "mode": "LEXICAL",
+        "topK": 6,
+        "threshold": 0.08
+      },
+      "results": [
+        {
+          "category": "Knowledge Retrieval",
+          "id": "ots",
+          "question": "O que significa OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.26969999999983,
+          "contextTokens": 379,
+          "citationCoverage": 1,
+          "citationCorrectness": 1,
+          "runId": "7dc7452c-44df-464a-83f8-4905563123cd"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "observers",
+          "question": "Qual a diferença entre observadores e OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": false,
+          "metrics": {
+            "hitRate": 0,
+            "precision": 0,
+            "recall": 0,
+            "mrr": 0
+          },
+          "filterPass": true,
+          "keywordPass": false,
+          "toolPass": true,
+          "latencyMs": 7.23070000000007,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "c5753a64-bd21-4787-af96-0d8b16fb4b0e"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "dwell",
+          "question": "O que é dwell time?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.5,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 8.485400000000027,
+          "contextTokens": 395,
+          "citationCoverage": 1,
+          "citationCorrectness": 1,
+          "runId": "526bb48b-cf4e-4dd5-a6f1-7b5817607968"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "top",
+          "question": "Qual unidade apresentou mais OTS no período?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 13.070500000000266,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "850fbad0-3376-4c9e-a23c-bb624e71eefd"
+        },
+        {
+          "category": "Follow-up",
+          "id": "second",
+          "question": "Qual unidade ficou em segundo lugar?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 12.396600000000035,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "5c1803a6-901f-4d5c-b055-85adc3f72bf8"
+        },
+        {
+          "category": "Follow-up",
+          "id": "compare",
+          "question": "Compare Loja Centro e Loja Norte.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 11.60149999999976,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "4a3a171c-db6f-46a4-8a4b-fdf75037f4ed"
+        },
+        {
+          "category": "Follow-up",
+          "id": "morning",
+          "question": "Agora considere somente o período da manhã.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 18.09750000000031,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "89601ee8-0db2-4304-a0d4-eb371833afef"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "gender",
+          "question": "Qual gênero teve maior volume ontem?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 4.168500000000222,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "c4bc256f-24ca-4acc-8a95-1c59b12b4349"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "age",
+          "question": "Qual faixa etária teve maior atenção?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.49330000000009,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "0a8cbbdf-763d-4288-92c6-f880f2cb6510"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "hourly",
+          "question": "Quais datasets permitem análise por hora?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": false,
+          "metrics": {
+            "hitRate": 0,
+            "precision": 0,
+            "recall": 0,
+            "mrr": 0
+          },
+          "filterPass": true,
+          "keywordPass": false,
+          "toolPass": true,
+          "latencyMs": 7.268199999999979,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "d99b496c-22e8-4564-96f8-fe93f51bd565"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "rag-tools",
+          "question": "Explique a diferença entre RAG e consulta estruturada neste sistema.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": false,
+          "metrics": {
+            "hitRate": 0,
+            "precision": 0,
+            "recall": 0,
+            "mrr": 0
+          },
+          "filterPass": true,
+          "keywordPass": false,
+          "toolPass": true,
+          "latencyMs": 6.1559000000002015,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "c242a13d-5ae3-4e31-9f95-499f557b4e9a"
+        },
+        {
+          "category": "Hybrid",
+          "id": "hybrid",
+          "question": "Qual unidade teve maior OTS e o que essa métrica representa?",
+          "type": "HYBRID",
+          "passed": true,
+          "metrics": {
+            "hitRate": 0,
+            "precision": 0,
+            "recall": 0,
+            "mrr": 0
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 13.907799999999952,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "e9a1dcae-a326-4459-8a0a-e72587963cf6"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "missing-metric",
+          "question": "Qual foi o maior valor?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 1.6611000000002605,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "a37a0809-5849-4a3b-b6e7-b08b1da225c0"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "central",
+          "question": "Qual Loja Central teve maior OTS?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 1.707300000000032,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "4e8ecd13-63bb-42a0-bc8a-9ca8cd5debff"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "no-evidence",
+          "question": "Explique a física de um quasar magnetizado interestelar.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.497399999999743,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "34a6c9bc-feb4-48a6-ba0f-7555f2462882"
+        }
+      ],
+      "summary": {
+        "total": 15,
+        "passed": 12,
+        "meanLatencyMs": 9.200760000000052,
+        "hitRate": 0.3333333333333333,
+        "precision": 0.16666666666666666,
+        "recall": 0.25,
+        "mrr": 0.3333333333333333,
+        "citationCoverage": 1,
+        "citationCorrectness": 1
+      },
+      "createdAt": "2026-10-10T02:18:59.110Z",
+      "evaluationKind": "deterministic checks; no LLM judge"
+    },
+    {
+      "benchmark": {
+        "questionSet": "v1-15",
+        "model": "mock-hash-256-v2",
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "id": "837b8ec0-c932-4960-98a2-74800c9dd819",
+      "config": {
+        "mode": "HYBRID",
+        "topK": 6,
+        "threshold": 0.08
+      },
+      "results": [
+        {
+          "category": "Knowledge Retrieval",
+          "id": "ots",
+          "question": "O que significa OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.4,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.98239999999987,
+          "contextTokens": 897,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "d98d162e-5c9d-4e4e-b8f4-25bbe909767e"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "observers",
+          "question": "Qual a diferença entre observadores e OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.25,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.711700000000292,
+          "contextTokens": 719,
+          "citationCoverage": 0.5,
+          "citationCorrectness": 1,
+          "runId": "e0a075c1-4c77-4244-9023-468ca7529e30"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "dwell",
+          "question": "O que é dwell time?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.5,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.796100000000024,
+          "contextTokens": 395,
+          "citationCoverage": 1,
+          "citationCorrectness": 1,
+          "runId": "f772a27d-1bfd-41d1-8c66-dee15c06e2ea"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "top",
+          "question": "Qual unidade apresentou mais OTS no período?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.183300000000145,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "d17f88c5-6f70-4e07-8fe5-50378d5224fa"
+        },
+        {
+          "category": "Follow-up",
+          "id": "second",
+          "question": "Qual unidade ficou em segundo lugar?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 11.985599999999977,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "ccd93e82-2c47-4a90-861c-d0b7be2204e3"
+        },
+        {
+          "category": "Follow-up",
+          "id": "compare",
+          "question": "Compare Loja Centro e Loja Norte.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.945400000000063,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "04b95561-cc5d-4a88-80c7-eb4cad1d0517"
+        },
+        {
+          "category": "Follow-up",
+          "id": "morning",
+          "question": "Agora considere somente o período da manhã.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 18.629700000000412,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "b147497d-5863-48a5-ad0b-bf5c2ab44309"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "gender",
+          "question": "Qual gênero teve maior volume ontem?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 5.679599999999937,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "d4e051da-dff8-4eba-bded-502422faeb7b"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "age",
+          "question": "Qual faixa etária teve maior atenção?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 11.889999999999873,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "50a90e7b-4de4-484a-bdb4-0eaf4d8dae4c"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "hourly",
+          "question": "Quais datasets permitem análise por hora?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.25,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.010099999999966,
+          "contextTokens": 620,
+          "citationCoverage": 0.5,
+          "citationCorrectness": 1,
+          "runId": "068d071e-6e44-448f-8075-931893a077e5"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "rag-tools",
+          "question": "Explique a diferença entre RAG e consulta estruturada neste sistema.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.3333333333333333,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 7.876699999999801,
+          "contextTokens": 480,
+          "citationCoverage": 0.6666666666666666,
+          "citationCorrectness": 1,
+          "runId": "ce22b5eb-49cb-472d-a660-958f054067b1"
+        },
+        {
+          "category": "Hybrid",
+          "id": "hybrid",
+          "question": "Qual unidade teve maior OTS e o que essa métrica representa?",
+          "type": "HYBRID",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.4,
+            "recall": 1,
+            "mrr": 0.3333333333333333
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 17.89489999999978,
+          "contextTokens": 897,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "a31e442b-7bf8-4b6b-b8e9-6463e4879c3e"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "missing-metric",
+          "question": "Qual foi o maior valor?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 2.058899999999994,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "65c3a4a3-540f-4dda-b1cd-b9f75b247f7d"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "central",
+          "question": "Qual Loja Central teve maior OTS?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 2.4337000000000444,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "8bc9f846-70d7-4138-a22d-a92fb673c18d"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "no-evidence",
+          "question": "Explique a física de um quasar magnetizado interestelar.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 9.143299999999726,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "aa68a5d3-a440-4744-8961-3327826304b4"
+        }
+      ],
+      "summary": {
+        "total": 15,
+        "passed": 15,
+        "meanLatencyMs": 9.948093333333327,
+        "hitRate": 1,
+        "precision": 0.35555555555555557,
+        "recall": 1,
+        "mrr": 0.8888888888888888,
+        "citationCoverage": 0.5777777777777777,
+        "citationCorrectness": 1
+      },
+      "createdAt": "2026-10-10T02:18:59.383Z",
+      "evaluationKind": "deterministic checks; no LLM judge"
+    },
+    {
+      "benchmark": {
+        "questionSet": "v1-15",
+        "model": "mock-hash-256-v2",
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "id": "c3304aa2-718a-4f58-ab8e-9cad5432fa63",
+      "config": {
+        "mode": "HYBRID_RERANK",
+        "topK": 6,
+        "threshold": 0.08
+      },
+      "results": [
+        {
+          "category": "Knowledge Retrieval",
+          "id": "ots",
+          "question": "O que significa OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.4,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 9.267399999999725,
+          "contextTokens": 897,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "a8f66ba3-5f10-4493-ada4-bb51fdbe25e0"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "observers",
+          "question": "Qual a diferença entre observadores e OTS?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.25,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 12.106800000000021,
+          "contextTokens": 719,
+          "citationCoverage": 0.5,
+          "citationCorrectness": 1,
+          "runId": "3bb33ca0-3233-4c13-b3e6-b8ac37601602"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "dwell",
+          "question": "O que é dwell time?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.5,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 10.108299999999872,
+          "contextTokens": 395,
+          "citationCoverage": 1,
+          "citationCorrectness": 1,
+          "runId": "d2bd9cf5-b0c3-4463-8f00-20d97ab2ccbd"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "top",
+          "question": "Qual unidade apresentou mais OTS no período?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 12.14850000000024,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "a6609579-71ff-46c2-9ce5-eb100b59af07"
+        },
+        {
+          "category": "Follow-up",
+          "id": "second",
+          "question": "Qual unidade ficou em segundo lugar?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 12.268500000000131,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "8bb5ad75-c0f7-41ed-b6f9-8cf0fb70c4cc"
+        },
+        {
+          "category": "Follow-up",
+          "id": "compare",
+          "question": "Compare Loja Centro e Loja Norte.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 9.105999999999767,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "7cf99013-c266-45b4-9b64-791371ceb9ef"
+        },
+        {
+          "category": "Follow-up",
+          "id": "morning",
+          "question": "Agora considere somente o período da manhã.",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 17.176800000000185,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "163926c8-2fa5-4bb9-8b11-9f81a5ce35e0"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "gender",
+          "question": "Qual gênero teve maior volume ontem?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 6.405499999999847,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "58cc5c52-2c80-448b-a90f-633ea0a97ca5"
+        },
+        {
+          "category": "Numerical Analytics",
+          "id": "age",
+          "question": "Qual faixa etária teve maior atenção?",
+          "type": "ANALYTICS_TOOL",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 14.187000000000353,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "c5ea98e7-a104-4ee3-b6ab-498d22c268c7"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "hourly",
+          "question": "Quais datasets permitem análise por hora?",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.25,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 9.989399999999932,
+          "contextTokens": 620,
+          "citationCoverage": 0.5,
+          "citationCorrectness": 1,
+          "runId": "e9aa45bb-8b54-431d-8b6d-058d3030cf63"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "rag-tools",
+          "question": "Explique a diferença entre RAG e consulta estruturada neste sistema.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.3333333333333333,
+            "recall": 1,
+            "mrr": 1
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 11.459400000000187,
+          "contextTokens": 480,
+          "citationCoverage": 0.6666666666666666,
+          "citationCorrectness": 1,
+          "runId": "b105ca90-a9ea-4d47-865e-3956c983ef55"
+        },
+        {
+          "category": "Hybrid",
+          "id": "hybrid",
+          "question": "Qual unidade teve maior OTS e o que essa métrica representa?",
+          "type": "HYBRID",
+          "passed": true,
+          "metrics": {
+            "hitRate": 1,
+            "precision": 0.4,
+            "recall": 1,
+            "mrr": 0.3333333333333333
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 19.941299999999956,
+          "contextTokens": 897,
+          "citationCoverage": 0.4,
+          "citationCorrectness": 1,
+          "runId": "cd274340-1e88-4663-a1cb-dd8f04d959e0"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "missing-metric",
+          "question": "Qual foi o maior valor?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 2.513500000000022,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "bfae6142-ce51-49a0-ba54-cb76a8ed561b"
+        },
+        {
+          "category": "Disambiguation",
+          "id": "central",
+          "question": "Qual Loja Central teve maior OTS?",
+          "type": "CLARIFICATION",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 3.83600000000024,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "16e0572b-ab79-468f-8e39-7bafc05d93f6"
+        },
+        {
+          "category": "Knowledge Retrieval",
+          "id": "no-evidence",
+          "question": "Explique a física de um quasar magnetizado interestelar.",
+          "type": "KNOWLEDGE_RAG",
+          "passed": true,
+          "metrics": {
+            "hitRate": null,
+            "precision": null,
+            "recall": null,
+            "mrr": null
+          },
+          "filterPass": true,
+          "keywordPass": true,
+          "toolPass": true,
+          "latencyMs": 8.467299999999796,
+          "contextTokens": 0,
+          "citationCoverage": null,
+          "citationCorrectness": 1,
+          "runId": "eacc1fee-3d0f-454b-a26b-8c32264015dd"
+        }
+      ],
+      "summary": {
+        "total": 15,
+        "passed": 15,
+        "meanLatencyMs": 10.598780000000017,
+        "hitRate": 1,
+        "precision": 0.35555555555555557,
+        "recall": 1,
+        "mrr": 0.8888888888888888,
+        "citationCoverage": 0.5777777777777777,
+        "citationCorrectness": 1
+      },
+      "createdAt": "2026-10-10T02:18:59.664Z",
+      "evaluationKind": "deterministic checks; no LLM judge"
+    }
+  ]
+}

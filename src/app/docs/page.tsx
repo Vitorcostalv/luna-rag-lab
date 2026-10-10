@@ -1,5 +1,7 @@
 import { readFile } from "node:fs/promises";
 const files = [
+  "functional-report-v2",
+  "deployment-v2",
   "rag-fundamentals",
   "rag-vs-finetuning",
   "rag-vs-tools",

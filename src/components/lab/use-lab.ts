@@ -12,6 +12,11 @@ export type DocumentSummary = {
   metadata: Record<string, unknown>;
 };
 export type LabData = {
+  accessMode?: "public" | "owner" | "local";
+  executionMode?: "snapshot" | "live";
+  canWrite?: boolean;
+  generatedAt?: string;
+  examples?: string[];
   users: { id: string; name: string; role: string }[];
   projects: { id: string; name: string }[];
   documents: DocumentSummary[];

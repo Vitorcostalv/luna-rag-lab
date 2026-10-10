@@ -8,4 +8,11 @@ Retrieval executa embeddings cacheados por checksum+modelo, cosine search por pr
 
 Drizzle compartilha schema entre PGlite e Neon. Migrations SQL são aplicadas explicitamente; não executam no build. Scripts devem rodar sem um servidor local concorrente porque PGlite possui um único processo proprietário por diretório. Para testes, use banco em memória; para uma segunda instância, use PGLITE_PATH distinto.
 
-Trace, mensagens, hits, auditoria e quotas são persistidos. O rate limiter é por instância e não substitui rate limiting distribuído em produção. O seletor de identidade é propositalmente de demonstração, não autenticação segura.
+Trace, mensagens, hits, auditoria e quotas são persistidos. The original local rate limiter is per instance. V2 protected live endpoints also use shared PostgreSQL counters. The identity selector is local demo impersonation; production uses verified owner sessions.
+
+
+## V2 public and owner boundaries
+
+Anonymous production requests use only versioned public snapshots. Verified owner sessions can execute live operations when PostgreSQL and authentication secrets are configured. Server guards run before write body parsing and database/provider access. Signed owner identity is admin/demo; client role selection cannot grant authority. Same-origin checks and Strict cookies protect owner writes. Login, chat, comparison, ingestion, evaluations and experiments use shared PostgreSQL counters in protected live deployments; anonymous paid access is disabled.
+
+Experiments persist a separate index ID, corpus checksum, model identity and config, and query only that index. Their tables are maintained by the explicit SQL migration runner alongside the Drizzle domain schema. Knowledge graph relationships come from explicit metadata/schema mappings. Typed decisions expose normalized questions, previous intent, matching prior filters and planner routing; they do not expose private model reasoning.

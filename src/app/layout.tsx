@@ -9,11 +9,16 @@ const links = [
   ["/", "Overview"],
   ["/chat", "Workbench"],
   ["/knowledge", "Knowledge"],
+  ["/knowledge/graph", "Knowledge graph"],
   ["/playground/chunking", "Chunking"],
+  ["/experiments", "A/B experiments"],
+  ["/datasets", "Datasets"],
+  ["/safety", "Safety"],
   ["/evaluations", "Evaluations"],
   ["/runs", "Runs"],
   ["/architecture", "Architecture"],
   ["/docs", "Field notes"],
+  ["/owner", "Owner access"],
 ];
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,14 +29,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/" className="brand">
               <span className="brandmark">L/</span>
               <span>
-                LUNA<span className="brand-sub">RAG LAB / 01</span>
+                LUNA<span className="brand-sub">RAG LAB / 02</span>
               </span>
             </Link>
             <div className="nav-caption">RESEARCH TERMINAL</div>
             <nav aria-label="Main navigation">
               {links.map(([href, label], i) => (
                 <Link key={href} href={href}>
-                  <span className="nav-number">0{i + 1}</span>
+                  <span className="nav-number">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   {label}
                 </Link>
               ))}
@@ -52,7 +59,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 RETRIEVAL SYSTEMS{" "}
                 <span className="muted">/ EXPERIMENTAL WORKBENCH</span>
               </span>
-              <span className="tag">LAB v1.0</span>
+              <span className="tag">LAB v2.0</span>
             </header>
             {children}
             <footer className="footer">

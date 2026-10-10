@@ -1,10 +1,10 @@
 {
   "name": "luna-rag-lab",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "packageManager": "pnpm@10.13.1",
   "engines": {
-    "node": ">=22"
+    "node": "22.x || 24.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -23,7 +23,11 @@
     "ingest": "tsx scripts/ingest.ts",
     "eval": "tsx scripts/evaluate.ts",
     "experiment": "tsx scripts/experiment.ts",
-    "doctor": "tsx scripts/doctor.ts"
+    "doctor": "tsx scripts/doctor.ts",
+    "db:bootstrap:production": "tsx scripts/bootstrap-production.ts",
+    "demo:snapshot": "tsx scripts/snapshot.ts",
+    "demo:fixtures": "tsx scripts/v2-fixtures.ts",
+    "test:e2e:public": "playwright test --config playwright.public.config.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "4.0.91",

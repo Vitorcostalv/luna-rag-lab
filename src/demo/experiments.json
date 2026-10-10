@@ -1,0 +1,845 @@
+{
+  "generatedAt": "2026-10-10T02:18:59.666Z",
+  "mode": "recorded mock",
+  "results": [
+    {
+      "id": "7cb877d3-c012-45c2-b7e6-935a53db4027",
+      "query": "O que significa OTS?",
+      "config": {
+        "chunkSize": 700,
+        "overlap": 120,
+        "topK": 6,
+        "threshold": 0.08,
+        "mode": "HYBRID_RERANK",
+        "contextBudget": 2800,
+        "embeddingModel": "mock-hash-256-v2"
+      },
+      "index": {
+        "id": "7cb877d3-c012-45c2-b7e6-935a53db4027",
+        "chunks": 9,
+        "model": "mock-hash-256-v2",
+        "dimensions": 256,
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "metrics": {
+        "hitRate": 1,
+        "precision": 0.3333333333333333,
+        "recall": 1,
+        "mrr": 1
+      },
+      "latencyMs": 57.51890000000003,
+      "contextTokens": 1064,
+      "tokens": {
+        "input": 1728,
+        "output": 263,
+        "cached": 0,
+        "other": 0
+      },
+      "sources": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "a3ed16d7-0a1a-4ca1-a63f-901a05db5705",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.43528576002376573,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017,
+          "sourceId": "S1"
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "1197fb31-cb80-4e35-bea2-11679fbb6f8c",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.3179993818997975,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.03225806451612903,
+          "rerankScore": 1,
+          "finalScore": 1.032258064516129,
+          "sourceId": "S2"
+        },
+        {
+          "content": "# Métricas de demonstração\n\n## OTS e observers\n\nots é o número sintético de oportunidades de exposição. observers é o número sintético de eventos de observação. Ambos são agregáveis por soma.\n\n## Volume e atenção\n\nv é uma métrica de volume, agregável por soma. vd representa atenção sintética acumulada, também agregável por soma. vd não é uma pessoa nem um identificador.\n\n## Attention time e dwell time\n\nattention_time é a duração média sintética de atenção em segundos. dwell_time é a duração média sintética de permanência em segundos. Tempo de permanência não exige atenção à mídia. Use média para esses campos, e soma para vd.\n\n## Percentual\n\npercent_v é o percentual sintético de volume em relação a OTS. A ferramenta usa média simples dos registros para percent_v e para tempos. Não confundir média simples com uma taxa ponderada calculada a partir dos totais.",
+          "heading": "Métricas de demonstração",
+          "chunkIndex": 0,
+          "tokenCount": 217,
+          "start": 0,
+          "end": 868,
+          "id": "3b8572fe-4d2d-4fbf-95b1-8210a7a9fdd7",
+          "documentId": "4926f038-c97a-4076-b747-fcf29ade8b63",
+          "title": "Métricas de demonstração",
+          "source": "metrics.md",
+          "rank": 3,
+          "semanticScore": 0.2660760997141962,
+          "lexicalScore": 0,
+          "fusedScore": 0.015873015873015872,
+          "rerankScore": 1,
+          "finalScore": 1.0158730158730158,
+          "sourceId": "S3"
+        },
+        {
+          "content": "# Exemplos analíticos\n\nQual unidade teve maior OTS entre 10 e 15 de abril? Selecione ots_by_site, métrica ots, operação TOP, dimensão site e período explícito.\n\nCompare Loja Centro e Loja Norte. Preserve as duas entidades. Agora só no período da manhã: herde entidades e métrica, restringindo hora entre 6 e 11.\n\nQual gênero teve maior volume ontem? Selecione demographics, métrica v e dimensão gender. Qual faixa etária teve maior atenção? Selecione demographics, métrica vd e dimensão age.",
+          "heading": "Exemplos analíticos",
+          "chunkIndex": 0,
+          "tokenCount": 123,
+          "start": 0,
+          "end": 491,
+          "id": "de40c1cf-3031-451c-b4fc-cfecd04a177b",
+          "documentId": "cf9d4af6-c6ae-4284-818b-b480a40f64be",
+          "title": "Exemplos analíticos",
+          "source": "analytics-examples.md",
+          "rank": 4,
+          "semanticScore": 0.2222222305006455,
+          "lexicalScore": 0,
+          "fusedScore": 0.015625,
+          "rerankScore": 1,
+          "finalScore": 1.015625,
+          "sourceId": "S4"
+        },
+        {
+          "content": "# Regras de negócio sintéticas\n\n## Períodos\n\nManhã compreende horas 06 a 11 inclusive. O seed contém abril e outubro de 2026, com 28 dias em cada mês. Perguntas sobre ontem usam America/Sao_Paulo. Períodos sem registros produzem lista vazia, não um valor estimado.\n\n## Agregação\n\nots, observers, v e vd são volumes aditivos. attention_time, dwell_time e percent_v usam média simples. Não inferir valores usando um documento: consultar AnalyticsTool. Ranking ordena valores de forma decrescente. A segunda unidade preserva métrica e filtros da intenção anterior.\n\n## Ambiguidade\n\nLoja Central SP e Loja Central RJ são entidades distintas. Solicitar uma seleção quando o nome Loja Central não especifica a unidade.",
+          "heading": "Regras de negócio sintéticas",
+          "chunkIndex": 0,
+          "tokenCount": 178,
+          "start": 0,
+          "end": 712,
+          "id": "172647cf-a2c6-43ed-ae82-c613089a272c",
+          "documentId": "b4f85e95-2830-47ab-ad81-cf3a9b6d3de0",
+          "title": "Regras de negócio sintéticas",
+          "source": "business-rules.md",
+          "rank": 5,
+          "semanticScore": 0.09166985005140305,
+          "lexicalScore": 0,
+          "fusedScore": 0.015151515151515152,
+          "rerankScore": 1,
+          "finalScore": 1.0151515151515151,
+          "sourceId": "S5"
+        },
+        {
+          "content": "# Guia de retrieval\n\n## Estratégias\n\nBusca semântica usa cosine similarity via pgvector. Busca lexical usa full-text search do PostgreSQL em português com conteúdo, título e heading. Hybrid combina listas por Reciprocal Rank Fusion. Hybrid Rerank adiciona heurística de cobertura de termos.\n\n## RRF\n\nCada lista contribui com 1 / (k + rank), começando rank em 1. k padrão é 60. RRF combina posições, não soma scores incomparáveis de vetores e texto.\n\n## Contexto\n\nTop-K limita candidatos. Threshold filtra similaridade semântica. ContextBuilder remove duplicatas e preserva diversidade documental dentro do orçamento de contexto. IDs S1 e S2 permitem validar citações.",
+          "heading": "Guia de retrieval",
+          "chunkIndex": 0,
+          "tokenCount": 167,
+          "start": 0,
+          "end": 667,
+          "id": "8ca61c19-30f9-4e2b-b5c5-92d2d0837b5a",
+          "documentId": "e115bf09-3edc-4e62-93eb-fa5990fda532",
+          "title": "Guia de retrieval",
+          "source": "retrieval-guide.md",
+          "rank": 6,
+          "semanticScore": 0.09325046659997849,
+          "lexicalScore": 0,
+          "fusedScore": 0.015384615384615385,
+          "rerankScore": 0,
+          "finalScore": 0.015384615384615385,
+          "sourceId": "S6"
+        }
+      ],
+      "hits": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "a3ed16d7-0a1a-4ca1-a63f-901a05db5705",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.43528576002376573,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "1197fb31-cb80-4e35-bea2-11679fbb6f8c",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.3179993818997975,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.03225806451612903,
+          "rerankScore": 1,
+          "finalScore": 1.032258064516129
+        },
+        {
+          "content": "# Métricas de demonstração\n\n## OTS e observers\n\nots é o número sintético de oportunidades de exposição. observers é o número sintético de eventos de observação. Ambos são agregáveis por soma.\n\n## Volume e atenção\n\nv é uma métrica de volume, agregável por soma. vd representa atenção sintética acumulada, também agregável por soma. vd não é uma pessoa nem um identificador.\n\n## Attention time e dwell time\n\nattention_time é a duração média sintética de atenção em segundos. dwell_time é a duração média sintética de permanência em segundos. Tempo de permanência não exige atenção à mídia. Use média para esses campos, e soma para vd.\n\n## Percentual\n\npercent_v é o percentual sintético de volume em relação a OTS. A ferramenta usa média simples dos registros para percent_v e para tempos. Não confundir média simples com uma taxa ponderada calculada a partir dos totais.",
+          "heading": "Métricas de demonstração",
+          "chunkIndex": 0,
+          "tokenCount": 217,
+          "start": 0,
+          "end": 868,
+          "id": "3b8572fe-4d2d-4fbf-95b1-8210a7a9fdd7",
+          "documentId": "4926f038-c97a-4076-b747-fcf29ade8b63",
+          "title": "Métricas de demonstração",
+          "source": "metrics.md",
+          "rank": 3,
+          "semanticScore": 0.2660760997141962,
+          "lexicalScore": 0,
+          "fusedScore": 0.015873015873015872,
+          "rerankScore": 1,
+          "finalScore": 1.0158730158730158
+        },
+        {
+          "content": "# Exemplos analíticos\n\nQual unidade teve maior OTS entre 10 e 15 de abril? Selecione ots_by_site, métrica ots, operação TOP, dimensão site e período explícito.\n\nCompare Loja Centro e Loja Norte. Preserve as duas entidades. Agora só no período da manhã: herde entidades e métrica, restringindo hora entre 6 e 11.\n\nQual gênero teve maior volume ontem? Selecione demographics, métrica v e dimensão gender. Qual faixa etária teve maior atenção? Selecione demographics, métrica vd e dimensão age.",
+          "heading": "Exemplos analíticos",
+          "chunkIndex": 0,
+          "tokenCount": 123,
+          "start": 0,
+          "end": 491,
+          "id": "de40c1cf-3031-451c-b4fc-cfecd04a177b",
+          "documentId": "cf9d4af6-c6ae-4284-818b-b480a40f64be",
+          "title": "Exemplos analíticos",
+          "source": "analytics-examples.md",
+          "rank": 4,
+          "semanticScore": 0.2222222305006455,
+          "lexicalScore": 0,
+          "fusedScore": 0.015625,
+          "rerankScore": 1,
+          "finalScore": 1.015625
+        },
+        {
+          "content": "# Regras de negócio sintéticas\n\n## Períodos\n\nManhã compreende horas 06 a 11 inclusive. O seed contém abril e outubro de 2026, com 28 dias em cada mês. Perguntas sobre ontem usam America/Sao_Paulo. Períodos sem registros produzem lista vazia, não um valor estimado.\n\n## Agregação\n\nots, observers, v e vd são volumes aditivos. attention_time, dwell_time e percent_v usam média simples. Não inferir valores usando um documento: consultar AnalyticsTool. Ranking ordena valores de forma decrescente. A segunda unidade preserva métrica e filtros da intenção anterior.\n\n## Ambiguidade\n\nLoja Central SP e Loja Central RJ são entidades distintas. Solicitar uma seleção quando o nome Loja Central não especifica a unidade.",
+          "heading": "Regras de negócio sintéticas",
+          "chunkIndex": 0,
+          "tokenCount": 178,
+          "start": 0,
+          "end": 712,
+          "id": "172647cf-a2c6-43ed-ae82-c613089a272c",
+          "documentId": "b4f85e95-2830-47ab-ad81-cf3a9b6d3de0",
+          "title": "Regras de negócio sintéticas",
+          "source": "business-rules.md",
+          "rank": 5,
+          "semanticScore": 0.09166985005140305,
+          "lexicalScore": 0,
+          "fusedScore": 0.015151515151515152,
+          "rerankScore": 1,
+          "finalScore": 1.0151515151515151
+        },
+        {
+          "content": "# Guia de retrieval\n\n## Estratégias\n\nBusca semântica usa cosine similarity via pgvector. Busca lexical usa full-text search do PostgreSQL em português com conteúdo, título e heading. Hybrid combina listas por Reciprocal Rank Fusion. Hybrid Rerank adiciona heurística de cobertura de termos.\n\n## RRF\n\nCada lista contribui com 1 / (k + rank), começando rank em 1. k padrão é 60. RRF combina posições, não soma scores incomparáveis de vetores e texto.\n\n## Contexto\n\nTop-K limita candidatos. Threshold filtra similaridade semântica. ContextBuilder remove duplicatas e preserva diversidade documental dentro do orçamento de contexto. IDs S1 e S2 permitem validar citações.",
+          "heading": "Guia de retrieval",
+          "chunkIndex": 0,
+          "tokenCount": 167,
+          "start": 0,
+          "end": 667,
+          "id": "8ca61c19-30f9-4e2b-b5c5-92d2d0837b5a",
+          "documentId": "e115bf09-3edc-4e62-93eb-fa5990fda532",
+          "title": "Guia de retrieval",
+          "source": "retrieval-guide.md",
+          "rank": 6,
+          "semanticScore": 0.09325046659997849,
+          "lexicalScore": 0,
+          "fusedScore": 0.015384615384615385,
+          "rerankScore": 0,
+          "finalScore": 0.015384615384615385
+        }
+      ],
+      "answer": "OTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal. [S1]\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas. [S2]",
+      "trace": [
+        {
+          "stage": "Index Embedding",
+          "status": "complete",
+          "durationMs": 5.62729999999965,
+          "input": {
+            "chunks": 9,
+            "model": "mock-hash-256-v2"
+          },
+          "output": {
+            "count": 9
+          }
+        },
+        {
+          "stage": "Generation",
+          "status": "complete",
+          "durationMs": 0.6221000000000458,
+          "input": {
+            "provider": "mock",
+            "sourceCount": 6,
+            "hasTool": false
+          },
+          "output": {
+            "inputTokens": 1728,
+            "outputTokens": 263,
+            "cachedTokens": 0,
+            "answerCharacters": 1049
+          }
+        }
+      ],
+      "createdAt": "2026-10-10T02:18:58.453Z",
+      "mock": true
+    },
+    {
+      "id": "b81eed0a-0fd6-474c-8ceb-d4cdfdf668d0",
+      "query": "O que significa OTS?",
+      "config": {
+        "chunkSize": 120,
+        "overlap": 20,
+        "topK": 3,
+        "threshold": 0.08,
+        "mode": "HYBRID_RERANK",
+        "contextBudget": 600,
+        "embeddingModel": "mock-hash-256-v2"
+      },
+      "index": {
+        "id": "b81eed0a-0fd6-474c-8ceb-d4cdfdf668d0",
+        "chunks": 21,
+        "model": "mock-hash-256-v2",
+        "dimensions": 256,
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "metrics": {
+        "hitRate": 1,
+        "precision": 0.6666666666666666,
+        "recall": 0.5,
+        "mrr": 1
+      },
+      "latencyMs": 28.827800000000025,
+      "contextTokens": 254,
+      "tokens": {
+        "input": 596,
+        "output": 155,
+        "cached": 0,
+        "other": 0
+      },
+      "sources": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 78,
+          "start": 0,
+          "end": 314,
+          "id": "d21de37e-fbd8-4a42-be26-bf24d4e4fa5b",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.5656854173132538,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017,
+          "sourceId": "S1"
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 101,
+          "start": 0,
+          "end": 403,
+          "id": "065ce5c0-85a3-4e44-9c69-6ef315523ba1",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.28867517242956064,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.0315136476426799,
+          "rerankScore": 1,
+          "finalScore": 1.0315136476426798,
+          "sourceId": "S2"
+        },
+        {
+          "content": "s. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.",
+          "heading": "OTS",
+          "chunkIndex": 1,
+          "tokenCount": 75,
+          "start": 234,
+          "end": 536,
+          "id": "8f225623-b067-4d84-9908-b2c2a3401b4e",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 3,
+          "semanticScore": 0.41208173776647594,
+          "lexicalScore": 0,
+          "fusedScore": 0.016129032258064516,
+          "rerankScore": 1,
+          "finalScore": 1.0161290322580645,
+          "sourceId": "S3"
+        }
+      ],
+      "hits": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 78,
+          "start": 0,
+          "end": 314,
+          "id": "d21de37e-fbd8-4a42-be26-bf24d4e4fa5b",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.5656854173132538,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 101,
+          "start": 0,
+          "end": 403,
+          "id": "065ce5c0-85a3-4e44-9c69-6ef315523ba1",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.28867517242956064,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.0315136476426799,
+          "rerankScore": 1,
+          "finalScore": 1.0315136476426798
+        },
+        {
+          "content": "s. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.",
+          "heading": "OTS",
+          "chunkIndex": 1,
+          "tokenCount": 75,
+          "start": 234,
+          "end": 536,
+          "id": "8f225623-b067-4d84-9908-b2c2a3401b4e",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 3,
+          "semanticScore": 0.41208173776647594,
+          "lexicalScore": 0,
+          "fusedScore": 0.016129032258064516,
+          "rerankScore": 1,
+          "finalScore": 1.0161290322580645
+        }
+      ],
+      "answer": "OTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais. [S1]\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis. [S2]",
+      "trace": [
+        {
+          "stage": "Index Embedding",
+          "status": "complete",
+          "durationMs": 1.7795000000000982,
+          "input": {
+            "chunks": 21,
+            "model": "mock-hash-256-v2"
+          },
+          "output": {
+            "count": 21
+          }
+        },
+        {
+          "stage": "Generation",
+          "status": "complete",
+          "durationMs": 0.11590000000023792,
+          "input": {
+            "provider": "mock",
+            "sourceCount": 3,
+            "hasTool": false
+          },
+          "output": {
+            "inputTokens": 596,
+            "outputTokens": 155,
+            "cachedTokens": 0,
+            "answerCharacters": 620
+          }
+        }
+      ],
+      "createdAt": "2026-10-10T02:18:58.487Z",
+      "mock": true
+    },
+    {
+      "id": "9470c852-6516-4171-bc1e-5e7bc217da67",
+      "query": "O que significa OTS?",
+      "config": {
+        "chunkSize": 1000,
+        "overlap": 160,
+        "topK": 8,
+        "threshold": 0.15,
+        "mode": "HYBRID_RERANK",
+        "contextBudget": 2800,
+        "embeddingModel": "mock-hash-256-v2"
+      },
+      "index": {
+        "id": "9470c852-6516-4171-bc1e-5e7bc217da67",
+        "chunks": 9,
+        "model": "mock-hash-256-v2",
+        "dimensions": 256,
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "metrics": {
+        "hitRate": 1,
+        "precision": 0.5,
+        "recall": 1,
+        "mrr": 1
+      },
+      "latencyMs": 20.03740000000016,
+      "contextTokens": 719,
+      "tokens": {
+        "input": 1166,
+        "output": 263,
+        "cached": 0,
+        "other": 0
+      },
+      "sources": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "1b1ed193-fb06-4e54-94e5-cc9a397bf5d0",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.43528576002376573,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017,
+          "sourceId": "S1"
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "6fc3e444-7fbb-42aa-841b-e0b96497a7f8",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.3179993818997975,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.03225806451612903,
+          "rerankScore": 1,
+          "finalScore": 1.032258064516129,
+          "sourceId": "S2"
+        },
+        {
+          "content": "# Métricas de demonstração\n\n## OTS e observers\n\nots é o número sintético de oportunidades de exposição. observers é o número sintético de eventos de observação. Ambos são agregáveis por soma.\n\n## Volume e atenção\n\nv é uma métrica de volume, agregável por soma. vd representa atenção sintética acumulada, também agregável por soma. vd não é uma pessoa nem um identificador.\n\n## Attention time e dwell time\n\nattention_time é a duração média sintética de atenção em segundos. dwell_time é a duração média sintética de permanência em segundos. Tempo de permanência não exige atenção à mídia. Use média para esses campos, e soma para vd.\n\n## Percentual\n\npercent_v é o percentual sintético de volume em relação a OTS. A ferramenta usa média simples dos registros para percent_v e para tempos. Não confundir média simples com uma taxa ponderada calculada a partir dos totais.",
+          "heading": "Métricas de demonstração",
+          "chunkIndex": 0,
+          "tokenCount": 217,
+          "start": 0,
+          "end": 868,
+          "id": "dc653c77-a9cf-43dc-8cd4-6dc6bdc767ab",
+          "documentId": "4926f038-c97a-4076-b747-fcf29ade8b63",
+          "title": "Métricas de demonstração",
+          "source": "metrics.md",
+          "rank": 3,
+          "semanticScore": 0.2660760997141962,
+          "lexicalScore": 0,
+          "fusedScore": 0.015873015873015872,
+          "rerankScore": 1,
+          "finalScore": 1.0158730158730158,
+          "sourceId": "S3"
+        },
+        {
+          "content": "# Exemplos analíticos\n\nQual unidade teve maior OTS entre 10 e 15 de abril? Selecione ots_by_site, métrica ots, operação TOP, dimensão site e período explícito.\n\nCompare Loja Centro e Loja Norte. Preserve as duas entidades. Agora só no período da manhã: herde entidades e métrica, restringindo hora entre 6 e 11.\n\nQual gênero teve maior volume ontem? Selecione demographics, métrica v e dimensão gender. Qual faixa etária teve maior atenção? Selecione demographics, métrica vd e dimensão age.",
+          "heading": "Exemplos analíticos",
+          "chunkIndex": 0,
+          "tokenCount": 123,
+          "start": 0,
+          "end": 491,
+          "id": "03b77051-0805-414c-82ca-98b5b765ac4f",
+          "documentId": "cf9d4af6-c6ae-4284-818b-b480a40f64be",
+          "title": "Exemplos analíticos",
+          "source": "analytics-examples.md",
+          "rank": 4,
+          "semanticScore": 0.2222222305006455,
+          "lexicalScore": 0,
+          "fusedScore": 0.015625,
+          "rerankScore": 1,
+          "finalScore": 1.015625,
+          "sourceId": "S4"
+        }
+      ],
+      "hits": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "1b1ed193-fb06-4e54-94e5-cc9a397bf5d0",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0.43528576002376573,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0.03278688524590164,
+          "rerankScore": 1,
+          "finalScore": 1.0327868852459017
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "6fc3e444-7fbb-42aa-841b-e0b96497a7f8",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0.3179993818997975,
+          "lexicalScore": 0.1,
+          "fusedScore": 0.03225806451612903,
+          "rerankScore": 1,
+          "finalScore": 1.032258064516129
+        },
+        {
+          "content": "# Métricas de demonstração\n\n## OTS e observers\n\nots é o número sintético de oportunidades de exposição. observers é o número sintético de eventos de observação. Ambos são agregáveis por soma.\n\n## Volume e atenção\n\nv é uma métrica de volume, agregável por soma. vd representa atenção sintética acumulada, também agregável por soma. vd não é uma pessoa nem um identificador.\n\n## Attention time e dwell time\n\nattention_time é a duração média sintética de atenção em segundos. dwell_time é a duração média sintética de permanência em segundos. Tempo de permanência não exige atenção à mídia. Use média para esses campos, e soma para vd.\n\n## Percentual\n\npercent_v é o percentual sintético de volume em relação a OTS. A ferramenta usa média simples dos registros para percent_v e para tempos. Não confundir média simples com uma taxa ponderada calculada a partir dos totais.",
+          "heading": "Métricas de demonstração",
+          "chunkIndex": 0,
+          "tokenCount": 217,
+          "start": 0,
+          "end": 868,
+          "id": "dc653c77-a9cf-43dc-8cd4-6dc6bdc767ab",
+          "documentId": "4926f038-c97a-4076-b747-fcf29ade8b63",
+          "title": "Métricas de demonstração",
+          "source": "metrics.md",
+          "rank": 3,
+          "semanticScore": 0.2660760997141962,
+          "lexicalScore": 0,
+          "fusedScore": 0.015873015873015872,
+          "rerankScore": 1,
+          "finalScore": 1.0158730158730158
+        },
+        {
+          "content": "# Exemplos analíticos\n\nQual unidade teve maior OTS entre 10 e 15 de abril? Selecione ots_by_site, métrica ots, operação TOP, dimensão site e período explícito.\n\nCompare Loja Centro e Loja Norte. Preserve as duas entidades. Agora só no período da manhã: herde entidades e métrica, restringindo hora entre 6 e 11.\n\nQual gênero teve maior volume ontem? Selecione demographics, métrica v e dimensão gender. Qual faixa etária teve maior atenção? Selecione demographics, métrica vd e dimensão age.",
+          "heading": "Exemplos analíticos",
+          "chunkIndex": 0,
+          "tokenCount": 123,
+          "start": 0,
+          "end": 491,
+          "id": "03b77051-0805-414c-82ca-98b5b765ac4f",
+          "documentId": "cf9d4af6-c6ae-4284-818b-b480a40f64be",
+          "title": "Exemplos analíticos",
+          "source": "analytics-examples.md",
+          "rank": 4,
+          "semanticScore": 0.2222222305006455,
+          "lexicalScore": 0,
+          "fusedScore": 0.015625,
+          "rerankScore": 1,
+          "finalScore": 1.015625
+        }
+      ],
+      "answer": "OTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal. [S1]\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas. [S2]",
+      "trace": [
+        {
+          "stage": "Index Embedding",
+          "status": "complete",
+          "durationMs": 1.7148000000001957,
+          "input": {
+            "chunks": 9,
+            "model": "mock-hash-256-v2"
+          },
+          "output": {
+            "count": 9
+          }
+        },
+        {
+          "stage": "Generation",
+          "status": "complete",
+          "durationMs": 0.22800000000006548,
+          "input": {
+            "provider": "mock",
+            "sourceCount": 4,
+            "hasTool": false
+          },
+          "output": {
+            "inputTokens": 1166,
+            "outputTokens": 263,
+            "cachedTokens": 0,
+            "answerCharacters": 1049
+          }
+        }
+      ],
+      "createdAt": "2026-10-10T02:18:58.510Z",
+      "mock": true
+    },
+    {
+      "id": "57b3693c-4bb8-4d63-aab4-4b40bca1113f",
+      "query": "O que significa OTS?",
+      "config": {
+        "chunkSize": 300,
+        "overlap": 40,
+        "topK": 6,
+        "threshold": 0.08,
+        "mode": "LEXICAL",
+        "contextBudget": 2800,
+        "embeddingModel": "mock-hash-256-v2"
+      },
+      "index": {
+        "id": "57b3693c-4bb8-4d63-aab4-4b40bca1113f",
+        "chunks": 9,
+        "model": "mock-hash-256-v2",
+        "dimensions": 256,
+        "corpusHash": "62196d9c9dc0cbb5ebdcaed040af8b45f058843090bd956fd75b8f6ea0f98b11"
+      },
+      "metrics": {
+        "hitRate": 1,
+        "precision": 0.5,
+        "recall": 0.5,
+        "mrr": 1
+      },
+      "latencyMs": 17.3433,
+      "contextTokens": 379,
+      "tokens": {
+        "input": 595,
+        "output": 263,
+        "cached": 0,
+        "other": 0
+      },
+      "sources": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "a40f8fff-1b50-4b29-85be-90542d8643d8",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0,
+          "rerankScore": 0,
+          "finalScore": 0.10714286,
+          "sourceId": "S1"
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "37945663-c792-4318-a903-163bf0248d1d",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0,
+          "lexicalScore": 0.1,
+          "fusedScore": 0,
+          "rerankScore": 0,
+          "finalScore": 0.1,
+          "sourceId": "S2"
+        }
+      ],
+      "hits": [
+        {
+          "content": "# Glossário de analytics sintético\n\n## OTS\n\nOTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\n## Observadores\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal.\n\n## Entidades\n\nSite, loja e unidade são sinônimos de unidade operacional. Um site contém devices, sensores sintéticos que monitoram ativos. Ativo é um ponto físico ou uma mídia monitorada. Mídia representa o suporte de exibição. Campanha agrupa conteúdo de demonstração vinculado a devices. Nenhuma entidade corresponde a um cliente real.",
+          "heading": "Glossário de analytics sintético",
+          "chunkIndex": 0,
+          "tokenCount": 219,
+          "start": 0,
+          "end": 873,
+          "id": "a40f8fff-1b50-4b29-85be-90542d8643d8",
+          "documentId": "020acba5-5d4d-4fe6-a8c6-05bf70f21179",
+          "title": "Glossário de analytics sintético",
+          "source": "analytics-glossary.md",
+          "rank": 1,
+          "semanticScore": 0,
+          "lexicalScore": 0.10714286,
+          "fusedScore": 0,
+          "rerankScore": 0,
+          "finalScore": 0.10714286
+        },
+        {
+          "content": "# RAG e consultas estruturadas\n\n## Conhecimento\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\n## Valores\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\n## Híbrido\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas.",
+          "heading": "RAG e consultas estruturadas",
+          "chunkIndex": 0,
+          "tokenCount": 160,
+          "start": 0,
+          "end": 637,
+          "id": "37945663-c792-4318-a903-163bf0248d1d",
+          "documentId": "0e06cc0d-be22-45df-8f22-a27e5ce43b1c",
+          "title": "RAG e consultas estruturadas",
+          "source": "rag-vs-tools.md",
+          "rank": 2,
+          "semanticScore": 0,
+          "lexicalScore": 0.1,
+          "fusedScore": 0,
+          "rerankScore": 0,
+          "finalScore": 0.1
+        }
+      ],
+      "answer": "OTS significa Opportunity To See: oportunidades estimadas de exposição a uma mídia monitorada. No laboratório, OTS é um contador sintético de oportunidades, não uma contagem de pessoas únicas. Somar OTS é permitido. A definição não contém resultados analíticos atuais.\n\nObservers ou observadores representam eventos sintéticos de observação. Um observador pode gerar várias oportunidades OTS. Observadores e OTS não são equivalentes e não representam identificação pessoal. [S1]\n\nRAG responde definições, documentação, glossários, regras e contexto semântico com fontes citáveis. O que significa OTS é uma pergunta de conhecimento.\n\nAnalyticsTool consulta valores, somas, médias, contagens e agrupamentos autorizados. Qual unidade teve maior OTS exige uma consulta estruturada. Embeddings não calculam totais confiáveis.\n\nQual unidade teve maior OTS e o que a métrica representa combina AnalyticsTool para números e RAG para definição. ContextBuilder fornece evidências ao ResponseAgent. RAG não substitui ferramentas ou procedures autorizadas. [S2]",
+      "trace": [
+        {
+          "stage": "Index Embedding",
+          "status": "complete",
+          "durationMs": 1.5434000000000196,
+          "input": {
+            "chunks": 9,
+            "model": "mock-hash-256-v2"
+          },
+          "output": {
+            "count": 9
+          }
+        },
+        {
+          "stage": "Generation",
+          "status": "complete",
+          "durationMs": 0.1835000000000946,
+          "input": {
+            "provider": "mock",
+            "sourceCount": 2,
+            "hasTool": false
+          },
+          "output": {
+            "inputTokens": 595,
+            "outputTokens": 263,
+            "cachedTokens": 0,
+            "answerCharacters": 1049
+          }
+        }
+      ],
+      "createdAt": "2026-10-10T02:18:58.530Z",
+      "mock": true
+    }
+  ]
+}

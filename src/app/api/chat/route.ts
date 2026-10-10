@@ -1,3 +1,6 @@
+import { sharedLimit } from "@/core/security/shared-limit";
+import { publicReplay, guardOwner } from "@/core/security/session";
+import { replayStream } from "@/demo/public";
 import { retrievalSchema, apiError } from "@/lib/api";
 import { rateLimit } from "@/core/security/rate-limit";
 import { orchestrate } from "@/core/orchestrator";
@@ -6,6 +9,9 @@ export const maxDuration = 60;
 export async function POST(request: Request) {
   try {
     const body = retrievalSchema.parse(await request.json());
+    if (publicReplay(request)) return replayStream(body.query, body.mode);
+    guardOwner(request, body);
+    await sharedLimit("owner:chat", 15);
     rateLimit(`chat:${body.userId}`);
     const encoder = new TextEncoder();
     const stream = new ReadableStream({

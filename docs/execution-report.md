@@ -1,3 +1,5 @@
+> Historical V1 report. See [V2 execution report](execution-report-v2.md) for the current public deployment and functionality.
+
 # Execution report
 
 Implementation date: 2026-10-09 (America/Sao_Paulo).

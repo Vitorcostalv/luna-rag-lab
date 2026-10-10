@@ -1,3 +1,5 @@
+import { decisions } from "./observability/decisions";
+import { config } from "@/lib/config";
 import { randomUUID } from "node:crypto";
 import { and, eq } from "drizzle-orm";
 import { getDb } from "@/db/client";
@@ -107,7 +109,7 @@ export async function orchestrate(
   const sources = await trace.stage(
     "Context",
     { candidates: hits.length },
-    async () => buildContext(hits),
+    async () => buildContext(hits, config.contextBudget),
   );
   trace.state("FINALIZING");
   const usage = await generateAnswer(
@@ -129,6 +131,14 @@ export async function orchestrate(
       : undefined;
   const runId = randomUUID();
   const result = {
+    executionMode: "live" as "live" | "snapshot",
+    decisions: decisions(
+      request.query,
+      searchNormalize(retrievalQuery),
+      state,
+      action,
+      access,
+    ),
     runId,
     conversationId,
     answer: validated.text,

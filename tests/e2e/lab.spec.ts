@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 test("overview and responsive navigation", async ({ page }, info) => {
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "Luna RAG Lab" }),
+    page.getByRole("heading", { name: "Explore a real RAG pipeline" }),
   ).toBeVisible();
   await expect(page.getByText("Documents indexed")).toBeVisible();
   await expect(page.getByLabel("Demo user").locator("option")).toHaveCount(4);

@@ -86,7 +86,12 @@ export function Knowledge() {
               required
             />
           </label>
-          <button disabled={busy || lab.userId !== "admin"} className="primary">
+          <button
+            disabled={
+              busy || lab.userId !== "admin" || lab.data?.canWrite === false
+            }
+            className="primary"
+          >
             Upload & index
           </button>
         </form>
@@ -123,13 +128,21 @@ export function Knowledge() {
                     <div className="controls">
                       <button onClick={() => inspect(d.id)}>Inspect</button>
                       <button
-                        disabled={busy || lab.userId !== "admin"}
+                        disabled={
+                          busy ||
+                          lab.userId !== "admin" ||
+                          lab.data?.canWrite === false
+                        }
                         onClick={() => mutate("PATCH", d.id)}
                       >
                         Reindex
                       </button>
                       <button
-                        disabled={busy || lab.userId !== "admin"}
+                        disabled={
+                          busy ||
+                          lab.userId !== "admin" ||
+                          lab.data?.canWrite === false
+                        }
                         className="danger"
                         onClick={() => mutate("DELETE", d.id)}
                       >

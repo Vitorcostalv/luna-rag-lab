@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLab, fetchJson } from "@/components/lab/use-lab";
 import { Identity } from "@/components/lab/identity";
+import { Learning } from "@/components/inspector/learning";
 import { Inspector, SourceModal } from "@/components/inspector/inspector";
 import type { RunResult } from "@/core/orchestrator";
 import type {
@@ -24,9 +25,9 @@ const examples = [
   "Qual unidade teve maior OTS entre 10 e 15 de abril?",
   "Qual unidade teve maior OTS e o que essa métrica representa?",
 ];
-export function Workbench() {
+export function Workbench({ initialQuery = "" }: { initialQuery?: string }) {
   const lab = useLab(),
-    [query, setQuery] = useState(""),
+    [query, setQuery] = useState(initialQuery),
     [mode, setMode] = useState<Mode>("HYBRID_RERANK"),
     [topK, setTopK] = useState(6),
     [threshold, setThreshold] = useState(0.08);
@@ -38,12 +39,28 @@ export function Workbench() {
     [error, setError] = useState(""),
     [source, setSource] = useState<Source>(),
     [comparison, setComparison] = useState<Comparison[]>(),
-    [mobile, setMobile] = useState(false);
+    [mobile, setMobile] = useState(false),
+    [learning, setLearning] = useState(false);
+  const presetStarted = useRef(false);
   const identityKey = `${lab.userId}:${lab.projectId}`;
   const [conversation, setConversation] = useState<{
     identity: string;
     id: string;
   }>();
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    if (
+      p.get("run") === "1" &&
+      p.get("q") === query &&
+      lab.data &&
+      !presetStarted.current
+    ) {
+      presetStarted.current = true;
+      (
+        document.querySelector("form.composer") as HTMLFormElement
+      )?.requestSubmit();
+    }
+  }, [query, lab.data]);
   const payload = (question: string) => ({
     ...lab.identity,
     query: question,
@@ -188,6 +205,19 @@ export function Workbench() {
         <span className="tag">{status}</span>
       </div>
       <Identity lab={lab} />
+      {lab.data?.executionMode === "snapshot" && (
+        <label>
+          Recorded question
+          <select value="" onChange={(e) => setQuery(e.target.value)}>
+            <option value="" disabled>
+              Select an available replay
+            </option>
+            {lab.data.examples?.map((q) => (
+              <option key={q}>{q}</option>
+            ))}
+          </select>
+        </label>
+      )}
       <div className="controls">
         <label>
           Retrieval strategy
@@ -206,6 +236,7 @@ export function Workbench() {
             type="number"
             min="1"
             max="20"
+            disabled={lab.data?.executionMode === "snapshot"}
             value={topK}
             onChange={(e) => setTopK(Number(e.target.value))}
           />
@@ -217,6 +248,7 @@ export function Workbench() {
             min="0"
             max="1"
             step=".01"
+            disabled={lab.data?.executionMode === "snapshot"}
             value={threshold}
             onChange={(e) => setThreshold(Number(e.target.value))}
           />
@@ -234,6 +266,9 @@ export function Workbench() {
         >
           New conversation
         </button>
+        <button aria-pressed={learning} onClick={() => setLearning((v) => !v)}>
+          Learning mode {learning ? "on" : "off"}
+        </button>
         <button className="mobile-inspector" onClick={() => setMobile(!mobile)}>
           Inspector
         </button>
@@ -247,6 +282,13 @@ export function Workbench() {
         <div className="notice">
           MOCK MODE · deterministic excerpts and hash embeddings. Configure
           OpenAI for real semantic embeddings and generation.
+        </div>
+      )}
+      {lab.data?.executionMode === "snapshot" && (
+        <div className="notice">
+          Recorded configuration: topK 6, threshold 0.08. Latency and token
+          counts belong to the original mock execution. Choose a guided question
+          to replay.
         </div>
       )}
       <div className="workbench">
@@ -324,6 +366,7 @@ export function Workbench() {
         </section>
         <Inspector result={result} stages={stages} mobileOpen={mobile} />
       </div>
+      {learning && <Learning result={result} />}
       {comparison && (
         <section aria-label="Retrieval comparison">
           <h2 style={{ marginTop: 28 }}>Same query. Four retrieval paths.</h2>

@@ -1,3 +1,8 @@
+import { evaluationCategory } from "./comparison";
+import { providers } from "@/ai/provider";
+import { createHash } from "node:crypto";
+import { documents } from "@/db/schema";
+import { eq } from "drizzle-orm";
 import { randomUUID } from "node:crypto";
 import questions from "../../../evals/questions.json";
 import { getDb } from "@/db/client";
@@ -54,6 +59,7 @@ export async function evaluate(
       result.toolResult?.tool === question.expectedTool;
     const citations = result.answer.match(/\[S\d+\]/g) || [];
     results.push({
+      category: evaluationCategory(question),
       id: question.id,
       question: question.question,
       type: result.action.type,
@@ -92,7 +98,24 @@ export async function evaluate(
     citationCoverage: mean(results.map((r) => r.citationCoverage)),
     citationCorrectness: mean(results.map((r) => r.citationCorrectness)),
   };
+  const corpus = await getDb()
+    .select({ id: documents.id, content: documents.content })
+    .from(documents)
+    .where(eq(documents.projectId, projectId));
+  const corpusHash = createHash("sha256")
+    .update(
+      corpus
+        .map((d) => `${d.id}:${d.content}`)
+        .sort()
+        .join("\n"),
+    )
+    .digest("hex");
   const report = {
+    benchmark: {
+      questionSet: "v1-15",
+      model: providers().embedding.model,
+      corpusHash,
+    },
     id: randomUUID(),
     config: options,
     results,
@@ -102,6 +125,11 @@ export async function evaluate(
   };
   await getDb()
     .insert(evaluationRuns)
-    .values({ id: report.id, config: options, results, summary });
+    .values({
+      id: report.id,
+      config: { ...options, benchmark: report.benchmark },
+      results,
+      summary,
+    });
   return report;
 }

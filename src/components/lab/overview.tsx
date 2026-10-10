@@ -49,7 +49,7 @@ export function Overview() {
       <div className="page-heading">
         <div>
           <span className="eyebrow">SYSTEM OVERVIEW / RESEARCH TERMINAL</span>
-          <h1>Luna RAG Lab</h1>
+          <h1>Explore a real RAG pipeline</h1>
           <p>Retrieval-Augmented Generation Workbench</p>
         </div>
         <Link href="/chat" className="button primary">
@@ -62,6 +62,36 @@ export function Overview() {
           {lab.error} · Run pnpm db:seed before starting the app.
         </div>
       )}
+      <section className="guided-grid" aria-label="Guided examples">
+        {[
+          ["01 / KNOWLEDGE", "O que significa OTS?"],
+          [
+            "02 / ANALYTICS",
+            "Qual unidade teve maior OTS entre 10 e 15 de abril?",
+          ],
+          [
+            "03 / HYBRID",
+            "Qual unidade teve maior OTS e o que essa métrica representa?",
+          ],
+        ].map(([label, q]) => (
+          <Link
+            className="panel guided-card"
+            href={`/chat?q=${encodeURIComponent(q)}&run=1`}
+            key={label}
+          >
+            <span className="eyebrow">{label}</span>
+            <h2>{q}</h2>
+            <span className="code">Inspect evidence →</span>
+          </Link>
+        ))}
+      </section>
+      <p className="muted">
+        All data is synthetic. Public executions are recorded mock traces.{" "}
+        <a href="https://github.com/Vitorcostalv/luna-rag-lab">
+          Source on GitHub ↗
+        </a>{" "}
+        · <Link href="/architecture">Architecture ↗</Link>
+      </p>
       <div className="stats">
         {stats.map(([label, value]) => (
           <div className="stat" key={label}>
@@ -70,7 +100,9 @@ export function Overview() {
             <span>
               {value === undefined
                 ? "awaiting measurements"
-                : "database / observed"}
+                : data?.executionMode === "snapshot"
+                  ? "recorded / mock"
+                  : "database / observed"}
             </span>
           </div>
         ))}

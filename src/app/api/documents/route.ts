@@ -1,3 +1,10 @@
+import { sharedLimit } from "@/core/security/shared-limit";
+import {
+  publicReplay,
+  guardOwner,
+  protectedDeployment,
+} from "@/core/security/session";
+import { publicDocument } from "@/demo/public";
 import { randomUUID } from "node:crypto";
 import { and, eq } from "drizzle-orm";
 import { getDb } from "@/db/client";
@@ -10,6 +17,13 @@ import { z } from "zod";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 export async function GET(request: Request) {
+  if (publicReplay(request))
+    return publicDocument(new URL(request.url).searchParams.get("id") || "");
+  if (protectedDeployment()) {
+    const p = new URL(request.url).searchParams;
+    if (p.get("userId") !== "admin" || p.get("projectId") !== "demo")
+      return Response.json({ error: "Access denied" }, { status: 403 });
+  }
   try {
     const body = identitySchema
       .extend({ id: z.string() })
@@ -42,6 +56,8 @@ export async function GET(request: Request) {
 }
 export async function POST(request: Request) {
   try {
+    guardOwner(request);
+    await sharedLimit("owner:documents", 5);
     if (Number(request.headers.get("content-length") || 0) > 6 * 1024 * 1024)
       throw new Error("Upload too large");
     const form = await request.formData(),
@@ -50,6 +66,7 @@ export async function POST(request: Request) {
         projectId: form.get("projectId"),
       }),
       access = await checkAccess(identity.userId, identity.projectId);
+    guardOwner(request, { userId: access.userId, projectId: access.projectId });
     requireWrite(access);
     const file = form.get("file");
     if (!(file instanceof File)) throw new Error("A file is required");
@@ -72,11 +89,14 @@ export async function POST(request: Request) {
 }
 export async function PATCH(request: Request) {
   try {
+    guardOwner(request);
+    await sharedLimit("owner:documents", 5);
     const body = identitySchema
         .extend({ id: z.string() })
         .strict()
         .parse(await request.json()),
       access = await checkAccess(body.userId, body.projectId);
+    guardOwner(request, { userId: access.userId, projectId: access.projectId });
     requireWrite(access);
     const [doc] = await getDb()
       .select()
@@ -96,11 +116,14 @@ export async function PATCH(request: Request) {
 }
 export async function DELETE(request: Request) {
   try {
+    guardOwner(request);
+    await sharedLimit("owner:documents", 5);
     const body = identitySchema
         .extend({ id: z.string() })
         .strict()
         .parse(await request.json()),
       access = await checkAccess(body.userId, body.projectId);
+    guardOwner(request, { userId: access.userId, projectId: access.projectId });
     requireWrite(access);
     const rows = await getDb()
       .delete(documents)

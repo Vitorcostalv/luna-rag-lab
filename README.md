@@ -1,4 +1,16 @@
-# Luna RAG Lab
+# Luna RAG Lab V2
+
+Public HTTPS demo: https://luna-rag-lab.vercel.app
+
+Explore a real retrieval and analytics pipeline through **recorded mock executions** using synthetic data. The public site requires no login and makes no live AI calls or database writes. Local execution retains the full pipeline. Owner writes in production require verified server sessions and a configured PostgreSQL database.
+
+New in V2: typed knowledge graph; isolated A/B indexes and exports; observable agent decisions; eight safety fixtures; contextual learning mode; measured quality inspection; dataset/intent explorer; categorized evaluation history and compatible baseline comparison; safe health endpoint; shared owner limits and production bootstrap.
+
+Read the [functional report](docs/functional-report-v2.md), [deployment guide](docs/deployment-v2.md) and [V2 execution report](docs/execution-report-v2.md). Neon and real provider credentials are not configured; the public snapshot is the deployed fallback. No internal Luna data is used.
+
+---
+
+## Pipeline overview
 
 RAG experimentation workbench for enterprise analytics assistants, featuring hybrid retrieval, pgvector, citations, tool routing, evaluation and observability.
 
@@ -58,7 +70,7 @@ Next.js App Router / React / strict TypeScript / Tailwind / AI SDK 7 / Zod / Dri
 
 ## Production architecture
 
-Vercel Node runtime → Drizzle Neon HTTP driver → PostgreSQL with pgvector. Production does not require a daemon or persistent filesystem. PGlite is rejected when running on Vercel. Migrations and seed are explicit operational steps, not build side effects.
+Current public mode: Vercel Node runtime serves versioned JSON recordings. It does not initialize PGlite or call a provider. The available owner/live adapter is Vercel Node runtime -> Drizzle Neon HTTP -> PostgreSQL with pgvector; it requires a configured database and verified owner session. Migrations and seed are explicit operational steps, not build side effects.
 
 ## Running locally
 
@@ -81,7 +93,7 @@ For real AI, configure `AI_PROVIDER=openai`, `OPENAI_API_KEY`, `OPENAI_CHAT_MODE
 
 ## Environment
 
-See [.env.example](.env.example). Database: `DATABASE_MODE`, `DATABASE_URL`. Provider: `AI_PROVIDER` (`mock`, `openai`, `gateway`), `OPENAI_API_KEY`, `OPENAI_CHAT_MODEL`, `OPENAI_EMBEDDING_MODEL`. Gateway: `AI_GATEWAY_API_KEY`, `GATEWAY_CHAT_MODEL`, `GATEWAY_EMBEDDING_MODEL`; the embedding model must produce 256-dimensional vectors. Retrieval: `RAG_TOP_K`, `RAG_SIMILARITY_THRESHOLD`, `RAG_CHUNK_SIZE`, `RAG_CHUNK_OVERLAP`, `RAG_RRF_K`, `RAG_CONTEXT_BUDGET`. Governance: `MONTHLY_TOKEN_LIMIT`. Local tooling: optional `PGLITE_PATH`.
+See [.env.example](.env.example). Database: `DATABASE_MODE`, `DATABASE_URL`. Provider: `AI_PROVIDER` (`mock`, `openai`, `gateway`), `OPENAI_API_KEY`, `OPENAI_CHAT_MODEL`, `OPENAI_EMBEDDING_MODEL`. Gateway: `AI_GATEWAY_API_KEY`, `GATEWAY_CHAT_MODEL`, `GATEWAY_EMBEDDING_MODEL`; the embedding model must produce 256-dimensional vectors. Retrieval: `RAG_TOP_K`, `RAG_SIMILARITY_THRESHOLD`, `RAG_CHUNK_SIZE`, `RAG_CHUNK_OVERLAP`, `RAG_RRF_K`, `RAG_CONTEXT_BUDGET`. Governance: `MONTHLY_TOKEN_LIMIT`, `LAB_MODE`, `PUBLIC_DEMO_MODE`, `OWNER_AUTH_SECRET`, `OWNER_PASSWORD_HASH`. Local tooling: optional `PGLITE_PATH`.
 
 `RAG_DEBUG=true` enables the full run snapshot in Raw Trace only in development. Production Raw Trace shows a compact execution record. `ENABLE_LLM_RERANKER` is reserved for an optional adapter; the current reranker is deterministic. No secrets or complete system prompts are returned in traces.
 
@@ -107,6 +119,7 @@ pnpm typecheck
 pnpm test
 pnpm exec playwright install chromium
 pnpm test:e2e
+pnpm test:e2e:public
 pnpm build
 ```
 
@@ -114,27 +127,25 @@ Unit tests cover chunking, overlap, RRF, context diversity/budget, citations, pl
 
 ## Vercel deployment
 
-1. Create a Vercel project and connect this GitHub repository.
-2. Create or connect a Neon PostgreSQL database.
-3. Configure `DATABASE_MODE=postgres` and `DATABASE_URL` in the environment used for migrations and deployment.
-4. Run `pnpm db:migrate`; it enables pgvector. The database role needs permission to create the extension.
-5. Optionally run `pnpm db:seed` using the intended provider. The seed contains only demonstration data.
-6. Configure provider/model variables and secrets. Use mock for a public plumbing demo, or a real provider after applying authentication and operational controls.
-7. Build command is `pnpm build`, install is `pnpm install --frozen-lockfile`. Deploy using Vercel's Git integration or `vercel --prod` after linking the intended project.
+The existing project is published at https://luna-rag-lab.vercel.app. The public deployment uses recorded synthetic mock executions and requires no secrets. The complete V2 preview was validated before the production release.
 
-The local implementation is deployable to Vercel; this repository does not provision Neon, configure credentials or claim a live deployment. Uploads require the host's request limits to permit the body size; Vercel may impose a lower limit than the local 5 MB validator.
+For optional owner/live mode, configure PostgreSQL, session secrets and providers, then run `pnpm db:bootstrap:production` with the intended synthetic demo environment. Anonymous visitors continue to receive snapshots and cannot spend tokens or write data. See [deployment guide](docs/deployment-v2.md) for exact variables, auth hash format, free Neon terms blocker and validation commands. No paid resource has been provisioned.
+
+The install command is `pnpm install --frozen-lockfile`, build is `pnpm build`. Publish to the already linked project with `vercel deploy --yes` for preview and `vercel deploy --prod --yes` after verification. Host upload limits can be lower than the local 5 MB limit.
 
 ## Security considerations
 
-All content is synthetic. Demo identities are intentionally selectable and are not authentication. Membership, conversation ownership and dataset permissions are checked server-side, but anyone using the public lab can select Admin Demo. Replace identity selection with verified sessions before using confidential documents or paid public endpoints.
+All content is synthetic. Selectable demo identities exist only for local study. Production never trusts a browser-supplied role: anonymous requests read only curated recordings, and writes require a verified owner session, matching Origin and admin/demo scope. Auth cookies are HttpOnly, Secure and SameSite=Strict. Unconfigured owner mode is closed. Public snapshots exclude restricted-project records and uploaded documents.
 
 Tools validate allowlists and parameterize queries. Retrieved content is untrusted, cannot invoke tools, change permissions or expose prompts. A synthetic malicious document tests this boundary; deterministic filtering of known injection phrases is defense in depth, not a complete detection strategy. LLM behavior against unseen injections is not guaranteed by mock tests.
 
-Chat has per-process rate limiting. Paid generation uses atomic monthly quota reservations and settlement; cached tokens are tracked separately. Uncached embedding usage is recorded as otherTokens and counts toward subsequent generation checks; embedding calls themselves do not reserve quota. Multi-instance public production use needs shared rate limiting and authenticated identities. No raw HTML from documents is rendered. Error responses omit stack traces; traces never include API keys or full system prompts.
+Local chat has per-process rate limiting. Protected owner endpoints also use shared PostgreSQL counters across server instances. Paid generation uses atomic monthly quota reservations and settlement; cached tokens are tracked separately. Uncached embedding usage is recorded as otherTokens and counts toward subsequent generation checks; embedding calls themselves do not reserve quota. Anonymous paid operations are disabled; production owner calls require authentication and shared counters. No raw HTML from documents is rendered. Error responses omit stack traces; traces never include API keys or full system prompts.
 
 ## Experiments
 
-`pnpm experiment` reindexes and evaluates three chunk/overlap/topK/strategy configurations and restores the default corpus in a finally block. It writes `reports/latest-experiment.json`. Stop the app before this command and do not use it on a live shared production database. The workbench comparison provides four strategies for one query without altering the index.
+The V2 A/B page and `/api/experiments` create persistent isolated indexes and export JSON/CSV. Public visitors select four precomputed configurations. Live execution requires local admin or a verified owner; model identity must match the server-configured provider.
+
+The legacy local CLI `pnpm experiment` reindexes and evaluates three chunk/overlap/topK/strategy configurations and restores the default corpus in a finally block. It writes `reports/latest-experiment.json`. Stop the app before this command and do not use it on a live shared production database. The workbench comparison provides four strategies for one query without altering the index.
 
 ## Future migration
 

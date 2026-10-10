@@ -8,7 +8,7 @@ Public HTTPS application: https://luna-rag-lab.vercel.app.
 
 Existing project: `vitorcostalvs-projects/luna-rag-lab` (`prj_sFcPDKtJjmUs0F8qXFdr2r4qPLG9`). The first deployment was automatically assigned to production by Vercel. The complete V2 was then deployed and validated in preview before the final production release.
 
-Validated V2 preview: https://luna-rag-k502sedq7-vitorcostalvs-projects.vercel.app, deployment `dpl_41QeqpnSX9PnoeBUarR4mqS7WNRa`. All 12 public Playwright cases passed against this HTTPS URL, across desktop and mobile, without Vercel authentication or a bypass cookie. No error-level logs were returned for the preview at the time of inspection. Final production metadata and smoke results are recorded below after publication.
+Validated V2 preview: https://luna-rag-k502sedq7-vitorcostalvs-projects.vercel.app, deployment `dpl_41QeqpnSX9PnoeBUarR4mqS7WNRa`. All 12 public Playwright cases passed against this HTTPS URL, across desktop and mobile, without Vercel authentication or a bypass cookie. No error-level logs were returned for the preview at the time of inspection. Final production metadata and smoke results are recorded below.
 
 ## Mode and database
 
@@ -53,3 +53,18 @@ Required for production owner/live: `DATABASE_MODE=postgres`, `DATABASE_URL`, `L
 Public replay is finite and read-only. Graph/catalog/safety recordings are versioned and require regeneration to reflect corpus changes. Arbitrary Portuguese language and dates can require clarification. Reranking is heuristic, token counts estimate characters/4, numerical percent/time metrics use simple averages, and embedding usage is accounted after calls rather than reserved in advance. Generation deltas follow generation and citation validation. Owner model changes require server configuration and reindexing. Sessions have no individual revocation list; secret rotation revokes all sessions. Add retention cleanup, enterprise SSO and production monitoring before private-content use.
 
 The repository remains https://github.com/Vitorcostalv/luna-rag-lab on `main`; secrets, local runtime data and reports stay ignored. No force push or new repository/project was used.
+
+
+## Final production verification
+
+Release source commit: `53c30d5eba4572345be6b23cee8a9536e0a8655d` ? `feat: add rag experimentation suite and public deployment`, pushed to GitHub `main`.
+
+Production deployment: `dpl_4eBQsKvJw3A2YeEPpofk3cwxSHK3`, status READY, target production. Immutable release URL: https://luna-rag-9lastk898-vitorcostalvs-projects.vercel.app. Public alias: https://luna-rag-lab.vercel.app. Deployment protection is disabled for this synthetic project; no Vercel login is needed.
+
+All 12 public Playwright cases passed against the production alias on desktop/mobile. All 13 content routes returned HTTP 200, with no browser exceptions or horizontal document overflow in the smoke suite. Guided replay, citation, decisions, learning, graph selection, A/B recording selection and JSON downloads passed. Anonymous upload/reindex/delete/evaluation/experiment requests returned 403 even with admin identifiers; unconfigured auth login returned 503. Public document inspection succeeded.
+
+Independent unauthenticated HTTPS checks returned 200 from health/auth/lab/graph/safety/experiments/benchmarks. Health reported `available=true`, `mode=snapshot`, `database.status=not_configured`, `database.available=false`, `version=2.0.0`. Auth reported configured=false and authenticated=false. Production error-level log inspection returned no matching logs at verification time. Screenshots were captured from the actual HTTPS release.
+
+The deployment contains the feature commit above. This report is updated in a following documentation commit to record post-deployment evidence; that documentation update does not change application runtime code.
+
+GitHub CI for the deployed feature commit completed successfully: https://github.com/Vitorcostalv/luna-rag-lab/actions/runs/38017706935. Node 22 Linux validation passed frozen install, lint, strict typecheck, all 36 unit/37 integration tests, production build, Chromium installation, all 8 live local E2E cases and all 12 public E2E cases.

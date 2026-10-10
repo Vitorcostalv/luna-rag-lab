@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ots",
+    "question": "O que significa OTS?",
+    "type": "KNOWLEDGE_RAG",
+    "expectedSources": ["analytics-glossary.md", "metrics.md"],
+    "expectedKeywords": ["oportunidade"]
+  },
+  {
+    "id": "observers",
+    "question": "Qual a diferença entre observadores e OTS?",
+    "type": "KNOWLEDGE_RAG",
+    "expectedSources": ["analytics-glossary.md"],
+    "expectedKeywords": ["observ"]
+  },
+  {
+    "id": "dwell",
+    "question": "O que é dwell time?",
+    "type": "KNOWLEDGE_RAG",
+    "expectedSources": ["metrics.md"],
+    "expectedKeywords": ["permanência"]
+  },
+  {
+    "id": "top",
+    "question": "Qual unidade apresentou mais OTS no período?",
+    "type": "ANALYTICS_TOOL",
+    "expectedTool": "AnalyticsTool",
+    "expectedIntent": "TOP"
+  },
+  {
+    "id": "second",
+    "question": "Qual unidade ficou em segundo lugar?",
+    "type": "ANALYTICS_TOOL",
+    "prior": ["Qual unidade apresentou mais OTS no período?"],
+    "expectedTool": "AnalyticsTool",
+    "expectedFilters": {}
+  },
+  {
+    "id": "compare",
+    "question": "Compare Loja Centro e Loja Norte.",
+    "type": "ANALYTICS_TOOL",
+    "prior": ["Qual unidade teve maior OTS?"],
+    "expectedTool": "AnalyticsTool",
+    "expectedFilters": { "sites": ["Loja Centro", "Loja Norte"] }
+  },
+  {
+    "id": "morning",
+    "question": "Agora considere somente o período da manhã.",
+    "type": "ANALYTICS_TOOL",
+    "prior": [
+      "Qual unidade teve maior OTS?",
+      "Compare Loja Centro e Loja Norte."
+    ],
+    "expectedTool": "AnalyticsTool",
+    "expectedFilters": {
+      "hourStart": 6,
+      "hourEnd": 11,
+      "sites": ["Loja Centro", "Loja Norte"]
+    }
+  },
+  {
+    "id": "gender",
+    "question": "Qual gênero teve maior volume ontem?",
+    "type": "ANALYTICS_TOOL",
+    "expectedTool": "AnalyticsTool",
+    "expectedIntent": "TOP"
+  },
+  {
+    "id": "age",
+    "question": "Qual faixa etária teve maior atenção?",
+    "type": "ANALYTICS_TOOL",
+    "expectedTool": "AnalyticsTool"
+  },
+  {
+    "id": "hourly",
+    "question": "Quais datasets permitem análise por hora?",
+    "type": "KNOWLEDGE_RAG",
+    "expectedSources": ["datasets.md"],
+    "expectedKeywords": ["hourly"]
+  },
+  {
+    "id": "rag-tools",
+    "question": "Explique a diferença entre RAG e consulta estruturada neste sistema.",
+    "type": "KNOWLEDGE_RAG",
+    "expectedSources": ["rag-vs-tools.md"],
+    "expectedKeywords": ["AnalyticsTool"]
+  },
+  {
+    "id": "hybrid",
+    "question": "Qual unidade teve maior OTS e o que essa métrica representa?",
+    "type": "HYBRID",
+    "expectedTool": "AnalyticsTool",
+    "expectedSources": ["metrics.md", "analytics-glossary.md"]
+  },
+  {
+    "id": "missing-metric",
+    "question": "Qual foi o maior valor?",
+    "type": "CLARIFICATION"
+  },
+  {
+    "id": "central",
+    "question": "Qual Loja Central teve maior OTS?",
+    "type": "CLARIFICATION"
+  },
+  {
+    "id": "no-evidence",
+    "question": "Explique a física de um quasar magnetizado interestelar.",
+    "type": "KNOWLEDGE_RAG",
+    "expectedKeywords": ["evidência suficiente"],
+    "tags": ["no-evidence"]
+  }
+]

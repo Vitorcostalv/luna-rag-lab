@@ -1,0 +1,59 @@
+{
+  "name": "luna-rag-lab",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reset": "tsx scripts/reset.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "eval": "tsx scripts/evaluate.ts",
+    "experiment": "tsx scripts/experiment.ts",
+    "doctor": "tsx scripts/doctor.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "4.0.91",
+    "@electric-sql/pglite": "^0.5.8",
+    "@electric-sql/pglite-pgvector": "0.0.9",
+    "@neondatabase/serverless": "^1.0.2",
+    "ai": "7.0.137",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.4",
+    "lucide-react": "^0.468.0",
+    "next": "16.4.0",
+    "pdf-parse": "^2.4.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "drizzle-kit": "^0.31.7",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "16.4.0",
+    "prettier": "^3.9.9",
+    "tailwindcss": "^4.1.17",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

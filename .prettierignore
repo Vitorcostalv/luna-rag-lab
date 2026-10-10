@@ -1,0 +1,8 @@
+node_modules
+.next
+.data
+reports
+test-results
+playwright-report
+pnpm-lock.yaml
+src/db/migrations/meta
